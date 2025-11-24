@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: us-east-1 | VPC + 2 públicas + 2 privadas + IGW + RTs + SG + EC2 (Ubuntu 22.04) + RDS MySQL (sandbox - acesso direto da sua máquina)
+Description: us-east-1 | VPC + 2 públicas + 2 privadas + IGW + RTs + SG + EC2 + RDS MySQL 
 
 Parameters:
   VPCCidr:
@@ -219,7 +219,7 @@ Resources:
   DBSubnetGroup:
     Type: AWS::RDS::DBSubnetGroup
     Properties:
-      DBSubnetGroupDescription: Subnet group para RDS MySQL em 2 AZs públicas (sandbox)
+      DBSubnetGroupDescription: Subnet group para RDS MySQL
       SubnetIds:
         - !Ref PublicSubnet1
         - !Ref PublicSubnet2
