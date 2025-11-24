@@ -45,14 +45,14 @@ Parameters:
     Type: AWS::EC2::KeyPair::KeyName
     Default: LinuxUbuntu
 
-  # ---------- SENHA DO RDS (admin/admin - APENAS SANDBOX) ----------
+  # ---------- SENHA DO RDS (mínimo 8 caracteres) ----------
   DBPassword:
     Type: String
     NoEcho: true
-    MinLength: 5
+    MinLength: 8
     MaxLength: 41
-    Default: admin
-    Description: Senha do usuário admin do RDS (sandbox)
+    Default: Admin123!
+    Description: Senha do usuário admin do RDS (sandbox - mínimo 8 caracteres)
 
 Resources:
   # ----------------- VPC e Internet -----------------
@@ -266,20 +266,14 @@ Resources:
           #!/bin/bash
           set -e
 
-          # Atualizar pacotes básicos
           apt-get update -y
           apt-get install -y software-properties-common apt-transport-https lsb-release ca-certificates
 
-          # ----------------------------
-          # PHP 7.4 - Repositório Ondrej
-          # ----------------------------
+          # PHP 7.4 - repositório Ondrej
           add-apt-repository ppa:ondrej/php -y
           apt-get update -y
 
-          # ----------------------------
-          # Instalar Apache + PHP 7.4 + extensões
-          # (nenhuma página ou script de conexão será criado)
-          # ----------------------------
+          # Apache + PHP 7.4 + extensões
           apt-get install -y \
             apache2 \
             php7.4 php7.4-cli php7.4-common \
@@ -290,33 +284,32 @@ Resources:
           a2enmod php7.4
           a2enmod rewrite
 
-          # Ajustar ordem do index para priorizar index.php (útil pra site PHP)
+          # Priorizar index.php
           sed -i 's/index.html index.cgi index.pl index.php/index.php index.html index.cgi index.pl/' /etc/apache2/mods-enabled/dir.conf
 
           systemctl enable apache2
           systemctl restart apache2
 
-          # Nenhuma página criada, nenhum arquivo de conexão, nenhuma tabela no RDS
-          # Você fará o deploy do seu site manualmente (git, scp, etc).
+          # Nenhuma página criada aqui - você deploya o site manualmente
 
   # ----------------- RDS MySQL (sandbox) -----------------
   MySqlRdsInstance:
     Type: AWS::RDS::DBInstance
     Properties:
-      DBInstanceIdentifier: rds-menu
-      AllocatedStorage: 10
+      DBInstanceIdentifier: rds-menu         # nome da instância (pode ter hífen)
+      AllocatedStorage: 20                   # mínimo recomendado para gp2
       StorageType: gp2
       DBInstanceClass: db.t4g.micro
       Engine: mysql
       MasterUsername: admin
       MasterUserPassword: !Ref DBPassword
-      DBName: rds-menu
+      DBName: rds_menu                        # nome do banco interno (sem hífen)
       VPCSecurityGroups:
         - !Ref DBSecurityGroup
       DBSubnetGroupName: !Ref DBSubnetGroup
-      MultiAZ: false              # sandbox, single-AZ
-      PubliclyAccessible: false   # apenas dentro da VPC
-      DeletionProtection: false   # sandbox
+      MultiAZ: false
+      PubliclyAccessible: false
+      DeletionProtection: false
       BackupRetentionPeriod: 1
       DeleteAutomatedBackups: true
       AutoMinorVersionUpgrade: true
