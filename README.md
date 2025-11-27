@@ -27,7 +27,41 @@ Além disso, demonstrar domínio de:
 
 ---
 
-## 🏗️ 2. Arquitetura da Solução
+## 📺 2. Vídeo da Implantação 
+
+Clique para assistir o deploy completo do projeto na AWS �
+
+[▶ Assista no YouTube](https://youtu.be/hyDsMO7DlLc)
+<table>
+  <tr>
+    <td><img src="./images/images%20(0).png" width="300px"/></td>
+  </tr>
+</table>
+
+---
+
+## 📎 3. Prints e Evidências  
+<table>
+  <tr>
+    <td><img src="./images/images%20(1).png" width="300px"/></td>
+    <td><img src="./images/images%20(2).png" width="300px"/></td>
+    <td><img src="./images/images%20(3).png" width="300px"/></td>
+  </tr>
+  <tr>
+    <td><img src="./images/images%20(4).png" width="300px"/></td>
+    <td><img src="./images/images%20(5).png" width="300px"/></td>
+    <td><img src="./images/images%20(6).png" width="300px"/></td>
+  </tr>
+  <tr>
+    <td><img src="./images/images%20(7).png" width="300px"/></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+---
+
+## 🏗️ 4. Arquitetura da Solução
 
 A infraestrutura foi totalmente desenvolvida com **AWS CloudFormation**, permitindo criação rápida, automatizada e versionada.
 
@@ -66,7 +100,7 @@ A infraestrutura foi totalmente desenvolvida com **AWS CloudFormation**, permiti
 
 ---
 
-## ⚙️ 3. Infraestrutura Automatizada (CloudFormation)
+## ⚙️ 5. Infraestrutura Automatizada (CloudFormation)
 
 O template cria automaticamente:
 
@@ -84,7 +118,7 @@ Scripts User Data realizam toda a preparação do servidor.
 
 ---
 
-## 🚀 4. Migração da Aplicação da VPS para AWS
+## 🚀 6. Migração da Aplicação da VPS para AWS
 
 A aplicação originalmente estava em:
 
@@ -105,7 +139,7 @@ Após o deploy, o sistema já estava **totalmente funcional** na AWS.
 
 ---
 
-## 📹 5. Resumo da Apresentação (26/11/2025)
+## 📹 7. Resumo da Apresentação (26/11/2025)
 
 Durante a reunião, apresentei:
 
@@ -142,7 +176,7 @@ Durante a reunião, apresentei:
 
 ---
 
-## 📚 6. Tecnologias Utilizadas
+## 📚 8. Tecnologias Utilizadas
 
 ### 🟦 AWS
 - EC2  
@@ -169,7 +203,7 @@ Durante a reunião, apresentei:
 
 ---
 
-## 📘 7. Aprendizados
+## 📘 9. Aprendizados
 
 - Construção de ambientes AWS do zero  
 - Automação com IaC  
@@ -181,47 +215,13 @@ Durante a reunião, apresentei:
 
 ---
 
-## 🔮 8. Próximos Passos
+## 🔮 10. Próximos Passos
 
 - Criar pipeline CI/CD (CodePipeline ou GitHub Actions)  
 - Colocar armazenamento de imagens no S3 + CloudFront  
 - Criar Auto Scaling Group  
 - Migrar logs para CloudWatch  
 - Criar monitoramento com Zabbix/Grafana  
-
----
-
-## 📎 9. Prints e Evidências  
-<table>
-  <tr>
-    <td><img src="./images/images%20(1).png" width="300px"/></td>
-    <td><img src="./images/images%20(2).png" width="300px"/></td>
-    <td><img src="./images/images%20(3).png" width="300px"/></td>
-  </tr>
-  <tr>
-    <td><img src="./images/images%20(4).png" width="300px"/></td>
-    <td><img src="./images/images%20(5).png" width="300px"/></td>
-    <td><img src="./images/images%20(6).png" width="300px"/></td>
-  </tr>
-  <tr>
-    <td><img src="./images/images%20(7).png" width="300px"/></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
----
-
-## 📺 10. Vídeo da Implantação 
-
-Clique para assistir o deploy completo do projeto na AWS �
-
-[▶ Assista no YouTube](https://youtu.be/hyDsMO7DlLc)
-<table>
-  <tr>
-    <td><img src="./images/images%20(0).png" width="300px"/></td>
-  </tr>
-</table>
 
 ---
 
